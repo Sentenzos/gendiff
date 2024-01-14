@@ -11,8 +11,11 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           
-      - name: Build with Gradle
+      - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
+          working-directory: app
+
+      - name: Execute Gradle build
+        run: gradle build
         
