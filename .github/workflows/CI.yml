@@ -14,6 +14,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          working-directory: app
+          build-root-directory: app
           arguments: build
         
