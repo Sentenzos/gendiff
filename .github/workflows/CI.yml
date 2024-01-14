@@ -15,7 +15,5 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           working-directory: app
-
-      - name: Execute Gradle build
-        run: gradle build
+          arguments: build
         
