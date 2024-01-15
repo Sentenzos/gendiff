@@ -27,6 +27,12 @@ application {
     mainClass = "hexlet.code.App"
 }
 
+tasks.jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
 //compileJava {
 //    options.release = 20
 //}
