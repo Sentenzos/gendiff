@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Collection;
 import java.util.stream.Stream;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class Differ {
     public static String generate(String filePath1, String filePath2) throws Exception {
         Path path1 = Paths.get(filePath1).toAbsolutePath().normalize();
@@ -23,9 +20,8 @@ public class Differ {
             throw new Exception("File '" + path2 + "' does not exist");
         }
 
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> map1 = mapper.readValue(Files.readString(path1), new TypeReference<>() { });
-        Map<String, Object> map2 = mapper.readValue(Files.readString(path2), new TypeReference<>() { });
+        Map<String, Object> map1 = Parser.parse(path1);
+        Map<String, Object> map2 = Parser.parse(path2);
 
         List<String> list = Stream.of(map1.keySet(), map2.keySet()).
                 flatMap(Collection::stream)

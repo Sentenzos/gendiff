@@ -5,9 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DifferTest {
-    @Test
-    public void generateTest() throws Exception {
-        var expected = """
+    private  String exprected = """
                 {
                   - follow: false
                     host: hexlet.io
@@ -16,8 +14,17 @@ public class DifferTest {
                   + timeout: 20
                   + verbose: true
                 }""";
+
+    @Test
+    public void jsonDiffTest() throws Exception {
         var actual = Differ.generate("./src/test/resources/j1.json", "./src/test/resources/j2.json");
-        assertEquals(expected, actual);
+        assertEquals(exprected, actual);
+    }
+
+    @Test
+    public void yamlDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml");
+        assertEquals(exprected, actual);
     }
 
     @Test
