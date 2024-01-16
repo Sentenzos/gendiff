@@ -1,8 +1,11 @@
-name: CI
+name: Java CI
+
 on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -23,6 +26,5 @@ jobs:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
           JACOCO_SOURCE_PATH: app/src/main/java
         with:
-          coverageCommand: gradle jacocoTestReport
+          coverageCommand: make report
           coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
-          workingDirectory: app
