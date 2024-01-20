@@ -28,7 +28,7 @@ public class App implements Callable<Integer>  {
 
     @Override
     public Integer call() throws Exception {
-        var result = Differ.generate("/Users/skandiy/jsons/j1.json", "/Users/skandiy/jsons/j2.json");
+        var result = Differ.generate(filePath1, filePath2, format);
 
         System.out.println(result);
 

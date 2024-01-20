@@ -5,6 +5,9 @@ run-dist: # Run application
 build:
 	@./gradlew clean build
 
+install:
+	@./gradlew clean install
+
 test:
 	@./gradlew test
 

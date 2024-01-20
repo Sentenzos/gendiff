@@ -3,14 +3,16 @@ package hexlet.code;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
-import java.util.stream.Collectors;
 import java.util.Map;
-import java.util.List;
 import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Differ {
-    public static String generate(String filePath1, String filePath2) throws Exception {
+    public static String generate(String filePath1, String filePath2, String format) throws Exception {
         Path path1 = Paths.get(filePath1).toAbsolutePath().normalize();
         Path path2 = Paths.get(filePath2).toAbsolutePath().normalize();
 
@@ -30,29 +32,36 @@ public class Differ {
                 .sorted()
                 .toList();
 
-        StringBuilder result = new StringBuilder();
-        result.append("{");
+        var diffView = Differ.getView(list, map1, map2);
+        return Formatter.format(diffView, format);
+    }
 
-        for (String key: list) {
+    private static List<Map<String, Object>> getView(List<String> keyList, Map<String, Object> map1,
+                                                     Map<String, Object> map2) {
+        List<Map<String, Object>> diffInfoList = new ArrayList<>();
+
+        for (String key: keyList) {
+            Map<String, Object> diffInfo = new HashMap<>();
+            diffInfo.put("key", key);
+
             if (!map1.containsKey(key)) {
-                result.append("\n\s\s")
-                        .append("+").append(" ").append(key).append(":").append(" ").append(map2.get(key));
+                diffInfo.put("operation", "added");
+                diffInfo.put("currentValue", map2.get(key));
             } else if (!map2.containsKey(key)) {
-                result.append("\n\s\s")
-                        .append("-").append(" ").append(key).append(":").append(" ").append(map1.get(key));
-            } else if (!map1.get(key).equals(map2.get(key))) {
-                result.append("\n\s\s")
-                        .append("-").append(" ").append(key).append(":").append(" ").append(map1.get(key));
-                result.append("\n\s\s")
-                        .append("+").append(" ").append(key).append(":").append(" ").append(map2.get(key));
+                diffInfo.put("operation", "deleted");
+                diffInfo.put("prevValue", map1.get(key));
+            } else if ((map1.get(key) == null && map2.get(key) != null) || !map1.get(key).equals(map2.get(key))) {
+                diffInfo.put("operation", "changed");
+                diffInfo.put("prevValue", map1.get(key));
+                diffInfo.put("currentValue", map2.get(key));
             } else {
-                result.append("\n\s\s\s\s")
-                        .append(key).append(":").append(" ").append(map1.get(key));
+                diffInfo.put("operation", "untouched");
+                diffInfo.put("currentValue", map1.get(key));
             }
+
+            diffInfoList.add(diffInfo);
         }
 
-        result.append("\n}");
-
-        return result.toString();
+        return diffInfoList;
     }
 }
