@@ -1,0 +1,79 @@
+[ {
+  "key" : "chars1",
+  "operation" : "default",
+  "currentValue" : [ "a", "b", "c" ],
+  "prevValue" : null
+}, {
+  "key" : "chars2",
+  "operation" : "updated",
+  "currentValue" : false,
+  "prevValue" : [ "d", "e", "f" ]
+}, {
+  "key" : "checked",
+  "operation" : "updated",
+  "currentValue" : true,
+  "prevValue" : false
+}, {
+  "key" : "default",
+  "operation" : "updated",
+  "currentValue" : [ "value1", "value2" ],
+  "prevValue" : null
+}, {
+  "key" : "id",
+  "operation" : "updated",
+  "currentValue" : null,
+  "prevValue" : 45
+}, {
+  "key" : "key1",
+  "operation" : "removed",
+  "currentValue" : "value1",
+  "prevValue" : null
+}, {
+  "key" : "key2",
+  "operation" : "added",
+  "currentValue" : "value2",
+  "prevValue" : null
+}, {
+  "key" : "numbers1",
+  "operation" : "default",
+  "currentValue" : [ 1, 2, 3, 4 ],
+  "prevValue" : null
+}, {
+  "key" : "numbers2",
+  "operation" : "updated",
+  "currentValue" : [ 22, 33, 44, 55 ],
+  "prevValue" : [ 2, 3, 4, 5 ]
+}, {
+  "key" : "numbers3",
+  "operation" : "removed",
+  "currentValue" : [ 3, 4, 5 ],
+  "prevValue" : null
+}, {
+  "key" : "numbers4",
+  "operation" : "added",
+  "currentValue" : [ 4, 5, 6 ],
+  "prevValue" : null
+}, {
+  "key" : "obj1",
+  "operation" : "added",
+  "currentValue" : {
+    "nestedKey" : "value",
+    "isNested" : true
+  },
+  "prevValue" : null
+}, {
+  "key" : "setting1",
+  "operation" : "updated",
+  "currentValue" : "Another value",
+  "prevValue" : "Some value"
+}, {
+  "key" : "setting2",
+  "operation" : "updated",
+  "currentValue" : 300,
+  "prevValue" : 200
+}, {
+  "key" : "setting3",
+  "operation" : "updated",
+  "currentValue" : "none",
+  "prevValue" : true
+} ]
