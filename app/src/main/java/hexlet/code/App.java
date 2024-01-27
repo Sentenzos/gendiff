@@ -26,12 +26,14 @@ public class App implements Callable<Integer>  {
         System.exit(exitCode);
     }
 
+    /**
+     *
+     * @return null
+     * @throws Exception
+     */
     @Override
     public Integer call() throws Exception {
         var result = Differ.generate(filePath1, filePath2, format);
-
-        System.out.println(result);
-
         return null;
     }
 }

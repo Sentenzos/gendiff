@@ -10,13 +10,13 @@ public class DiffView {
 
         for (String key: keyList) {
             if (!map1.containsKey(key)) {
-                diffDataList.add(new DiffData(key, "added", map2.get(key)));
+                diffDataList.add(new DiffData(key, DiffData.Operation.ADDED, map2.get(key)));
             } else if (!map2.containsKey(key)) {
-                diffDataList.add(new DiffData(key, "removed", map1.get(key)));
+                diffDataList.add(new DiffData(key, DiffData.Operation.REMOVED, map1.get(key)));
             } else if ((map1.get(key) == null && map2.get(key) != null) || !map1.get(key).equals(map2.get(key))) {
-                diffDataList.add(new DiffData(key, "updated", map2.get(key), map1.get(key)));
+                diffDataList.add(new DiffData(key, DiffData.Operation.UPDATED, map2.get(key), map1.get(key)));
             } else {
-                diffDataList.add(new DiffData(key, "default", map1.get(key)));
+                diffDataList.add(new DiffData(key, DiffData.Operation.UNCHANGED, map1.get(key)));
             }
         }
 

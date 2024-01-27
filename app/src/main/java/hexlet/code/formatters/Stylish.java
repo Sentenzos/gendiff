@@ -18,11 +18,11 @@ public class Stylish {
 
         for (DiffData diffInfo: diffView) {
             switch (diffInfo.getOperation()) {
-                case "added" -> result.append(String.format(added, diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case "removed" -> result.append(String.format(removed, diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case "updated" -> result.append(String.format(updated, diffInfo.getKey(),
+                case ADDED -> result.append(String.format(added, diffInfo.getKey(), diffInfo.getCurrentValue()));
+                case REMOVED -> result.append(String.format(removed, diffInfo.getKey(), diffInfo.getCurrentValue()));
+                case UPDATED -> result.append(String.format(updated, diffInfo.getKey(),
                         diffInfo.getPrevValue(), diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case "default" -> result.append(String.format(def, diffInfo.getKey(), diffInfo.getCurrentValue()));
+                case UNCHANGED -> result.append(String.format(def, diffInfo.getKey(), diffInfo.getCurrentValue()));
                 default -> throw new RuntimeException("Unexpected operation: " + diffInfo.getOperation());
             }
         }

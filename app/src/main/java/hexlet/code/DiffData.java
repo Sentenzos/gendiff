@@ -1,36 +1,67 @@
 package hexlet.code;
 
 public class DiffData {
+
+    public enum Operation {
+        REMOVED,
+        ADDED,
+        UNCHANGED,
+        UPDATED
+    }
+
     private String key;
-    private String operation;
+    private Operation operation;
     private Object currentValue;
     private Object prevValue;
 
-    public DiffData(String key, String operation, Object currentValue, Object prevValue) {
+    /**
+     * @param key
+     * @param operation
+     * @param currentValue
+     * @param prevValue
+     */
+    public DiffData(String key, Operation operation, Object currentValue, Object prevValue) {
         this.key = key;
         this.operation = operation;
         this.currentValue = currentValue;
         this.prevValue = prevValue;
     }
 
-    public DiffData(String key, String operation, Object currentValue) {
+    /**
+     * @param key
+     * @param operation
+     * @param currentValue
+     */
+    public DiffData(String key, Operation operation, Object currentValue) {
         this.key = key;
         this.operation = operation;
         this.currentValue = currentValue;
     }
 
+    /**
+     * @return key
+     */
     public String getKey() {
         return key;
     }
 
-    public String getOperation() {
+    /**
+     * @return operation
+     */
+    public Operation getOperation() {
         return operation;
     }
 
+    /**
+     * @return currentValue
+     */
     public Object getCurrentValue() {
         return currentValue;
     }
 
+    /**
+     * @return prevValue
+     */
     public Object getPrevValue() {
         return prevValue;
     }

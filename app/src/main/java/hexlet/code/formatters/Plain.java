@@ -15,22 +15,22 @@ public class Plain {
 
         for (DiffData diffInfo: diffView) {
             switch (diffInfo.getOperation()) {
-                case "added" -> result.append(String.format(
+                case ADDED -> result.append(String.format(
                         added,
                         diffInfo.getKey(),
                         stringify(diffInfo.getCurrentValue())
                 ));
-                case "removed" -> result.append(String.format(
+                case REMOVED -> result.append(String.format(
                         removed,
                         diffInfo.getKey()
                 ));
-                case "updated" -> result.append(String.format(
+                case UPDATED -> result.append(String.format(
                         updated,
                         diffInfo.getKey(),
                         stringify(diffInfo.getPrevValue()),
                         stringify(diffInfo.getCurrentValue())
                 ));
-                case "default" -> {
+                case UNCHANGED -> {
 
                 }
                 default -> throw new RuntimeException("Unexpected operation: " + diffInfo.getOperation());

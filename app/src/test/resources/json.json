@@ -1,61 +1,61 @@
 [ {
   "key" : "chars1",
-  "operation" : "default",
+  "operation" : "UNCHANGED",
   "currentValue" : [ "a", "b", "c" ],
   "prevValue" : null
 }, {
   "key" : "chars2",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : false,
   "prevValue" : [ "d", "e", "f" ]
 }, {
   "key" : "checked",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : true,
   "prevValue" : false
 }, {
   "key" : "default",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : [ "value1", "value2" ],
   "prevValue" : null
 }, {
   "key" : "id",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : null,
   "prevValue" : 45
 }, {
   "key" : "key1",
-  "operation" : "removed",
+  "operation" : "REMOVED",
   "currentValue" : "value1",
   "prevValue" : null
 }, {
   "key" : "key2",
-  "operation" : "added",
+  "operation" : "ADDED",
   "currentValue" : "value2",
   "prevValue" : null
 }, {
   "key" : "numbers1",
-  "operation" : "default",
+  "operation" : "UNCHANGED",
   "currentValue" : [ 1, 2, 3, 4 ],
   "prevValue" : null
 }, {
   "key" : "numbers2",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : [ 22, 33, 44, 55 ],
   "prevValue" : [ 2, 3, 4, 5 ]
 }, {
   "key" : "numbers3",
-  "operation" : "removed",
+  "operation" : "REMOVED",
   "currentValue" : [ 3, 4, 5 ],
   "prevValue" : null
 }, {
   "key" : "numbers4",
-  "operation" : "added",
+  "operation" : "ADDED",
   "currentValue" : [ 4, 5, 6 ],
   "prevValue" : null
 }, {
   "key" : "obj1",
-  "operation" : "added",
+  "operation" : "ADDED",
   "currentValue" : {
     "nestedKey" : "value",
     "isNested" : true
@@ -63,17 +63,17 @@
   "prevValue" : null
 }, {
   "key" : "setting1",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : "Another value",
   "prevValue" : "Some value"
 }, {
   "key" : "setting2",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : 300,
   "prevValue" : 200
 }, {
   "key" : "setting3",
-  "operation" : "updated",
+  "operation" : "UPDATED",
   "currentValue" : "none",
   "prevValue" : true
 } ]
