@@ -27,7 +27,7 @@ public class DifferTest {
     @Test
     public void jsonToStylishDiffTest() throws Exception {
         var actual = Differ.generate("./src/test/resources/j1.json",
-                "./src/test/resources/j2.json", "stylish");
+                "./src/test/resources/j2.json");
         assertEquals(expectedStylish, actual);
     }
 

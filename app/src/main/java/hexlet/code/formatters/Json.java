@@ -11,7 +11,6 @@ public class Json {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         String test = mapper.writeValueAsString(diffView);
-        System.out.println(test);
         return test;
     }
 }
