@@ -18,7 +18,6 @@ public class DiffView {
     public static List<Map<String, Object>> get(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> keySet = new TreeSet<>(map1.keySet());
         keySet.addAll(map2.keySet());
-
         List<Map<String, Object>> diffDataList = new ArrayList<>();
 
         for (String key: keySet) {
@@ -42,10 +41,8 @@ public class DiffView {
                 line.put("operation", Operation.UNCHANGED);
                 line.put("value", map1.get(key));
             }
-
             diffDataList.add(line);
         }
-
         return diffDataList;
     }
 }

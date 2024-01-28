@@ -18,21 +18,11 @@ public class Plain {
         for (Map<String, Object> diffInfo: diffView) {
             Object operation = diffInfo.get("operation");
             if (operation.equals(ADDED)) {
-                result.append(String.format(
-                        added,
-                        diffInfo.get("key"),
-                        stringify(diffInfo.get("value"))
-                ));
+                result.append(String.format(added, diffInfo.get("key"), stringify(diffInfo.get("value"))));
             } else if (operation.equals(REMOVED)) {
-                result.append(String.format(
-                        removed,
-                        diffInfo.get("key")
-                ));
+                result.append(String.format(removed, diffInfo.get("key")));
             } else if (operation.equals(UPDATED)) {
-                result.append(String.format(
-                        updated,
-                        diffInfo.get("key"),
-                        stringify(diffInfo.get("value1")),
+                result.append(String.format(updated, diffInfo.get("key"), stringify(diffInfo.get("value1")),
                         stringify(diffInfo.get("value2"))
                 ));
             }
