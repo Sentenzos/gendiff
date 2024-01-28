@@ -1,28 +1,49 @@
 package hexlet.code;
 
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.Map;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 public class DiffView {
-    public static List<DiffData> get(Map<String, Object> map1, Map<String, Object> map2) {
+    public enum Operation {
+        REMOVED,
+        ADDED,
+        UNCHANGED,
+        UPDATED
+    }
+
+    public static List<Map<String, Object>> get(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> keySet = new TreeSet<>(map1.keySet());
         keySet.addAll(map2.keySet());
 
-        List<DiffData> diffDataList = new ArrayList<>();
+        List<Map<String, Object>> diffDataList = new ArrayList<>();
 
         for (String key: keySet) {
+            Map<String, Object> line = new HashMap<>();
+
             if (!map1.containsKey(key)) {
-                diffDataList.add(new DiffData(key, DiffData.Operation.ADDED, map2.get(key)));
+                line.put("key", key);
+                line.put("operation", Operation.ADDED);
+                line.put("value", map2.get(key));
             } else if (!map2.containsKey(key)) {
-                diffDataList.add(new DiffData(key, DiffData.Operation.REMOVED, map1.get(key)));
+                line.put("key", key);
+                line.put("operation", Operation.REMOVED);
+                line.put("value", map1.get(key));
             } else if ((map1.get(key) == null && map2.get(key) != null) || !map1.get(key).equals(map2.get(key))) {
-                diffDataList.add(new DiffData(key, DiffData.Operation.UPDATED, map2.get(key), map1.get(key)));
+                line.put("key", key);
+                line.put("operation", Operation.UPDATED);
+                line.put("value1", map1.get(key));
+                line.put("value2", map2.get(key));
             } else {
-                diffDataList.add(new DiffData(key, DiffData.Operation.UNCHANGED, map1.get(key)));
+                line.put("key", key);
+                line.put("operation", Operation.UNCHANGED);
+                line.put("value", map1.get(key));
             }
+
+            diffDataList.add(line);
         }
 
         return diffDataList;

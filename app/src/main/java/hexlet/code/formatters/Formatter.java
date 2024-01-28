@@ -1,21 +1,19 @@
 package hexlet.code.formatters;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import hexlet.code.DiffData;
 
 import java.util.List;
+import java.util.Map;
 
 public class Formatter {
-    public static String format(List<DiffData> diffView, String format) throws JsonProcessingException {
+    public static String format(List<Map<String, Object>> diffView, String format) throws JsonProcessingException {
 
-        if (format.equals("stylish")) {
-            return Stylish.format(diffView);
-        } else if (format.equals("plain")) {
-            return Plain.format(diffView);
-        } else if (format.equals("json")) {
-            return Json.format(diffView);
-        }
+        return switch (format) {
+            case "stylish" -> Stylish.format(diffView);
+            case "plain" -> Plain.format(diffView);
+            case "json" -> Json.format(diffView);
+            default -> "";
+        };
 
-        return "";
     }
 }

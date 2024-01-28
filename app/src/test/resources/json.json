@@ -1,79 +1,72 @@
 [ {
-  "key" : "chars1",
   "operation" : "UNCHANGED",
-  "currentValue" : [ "a", "b", "c" ],
-  "prevValue" : null
+  "value" : [ "a", "b", "c" ],
+  "key" : "chars1"
 }, {
-  "key" : "chars2",
+  "value2" : false,
+  "value1" : [ "d", "e", "f" ],
   "operation" : "UPDATED",
-  "currentValue" : false,
-  "prevValue" : [ "d", "e", "f" ]
+  "key" : "chars2"
 }, {
-  "key" : "checked",
+  "value2" : true,
+  "value1" : false,
   "operation" : "UPDATED",
-  "currentValue" : true,
-  "prevValue" : false
+  "key" : "checked"
 }, {
-  "key" : "default",
+  "value2" : [ "value1", "value2" ],
+  "value1" : null,
   "operation" : "UPDATED",
-  "currentValue" : [ "value1", "value2" ],
-  "prevValue" : null
+  "key" : "default"
 }, {
-  "key" : "id",
+  "value2" : null,
+  "value1" : 45,
   "operation" : "UPDATED",
-  "currentValue" : null,
-  "prevValue" : 45
+  "key" : "id"
 }, {
-  "key" : "key1",
   "operation" : "REMOVED",
-  "currentValue" : "value1",
-  "prevValue" : null
+  "value" : "value1",
+  "key" : "key1"
 }, {
-  "key" : "key2",
   "operation" : "ADDED",
-  "currentValue" : "value2",
-  "prevValue" : null
+  "value" : "value2",
+  "key" : "key2"
 }, {
-  "key" : "numbers1",
   "operation" : "UNCHANGED",
-  "currentValue" : [ 1, 2, 3, 4 ],
-  "prevValue" : null
+  "value" : [ 1, 2, 3, 4 ],
+  "key" : "numbers1"
 }, {
-  "key" : "numbers2",
+  "value2" : [ 22, 33, 44, 55 ],
+  "value1" : [ 2, 3, 4, 5 ],
   "operation" : "UPDATED",
-  "currentValue" : [ 22, 33, 44, 55 ],
-  "prevValue" : [ 2, 3, 4, 5 ]
+  "key" : "numbers2"
 }, {
-  "key" : "numbers3",
   "operation" : "REMOVED",
-  "currentValue" : [ 3, 4, 5 ],
-  "prevValue" : null
+  "value" : [ 3, 4, 5 ],
+  "key" : "numbers3"
 }, {
-  "key" : "numbers4",
   "operation" : "ADDED",
-  "currentValue" : [ 4, 5, 6 ],
-  "prevValue" : null
+  "value" : [ 4, 5, 6 ],
+  "key" : "numbers4"
 }, {
-  "key" : "obj1",
   "operation" : "ADDED",
-  "currentValue" : {
+  "value" : {
     "nestedKey" : "value",
     "isNested" : true
   },
-  "prevValue" : null
+  "key" : "obj1"
 }, {
-  "key" : "setting1",
+  "value2" : "Another value",
+  "value1" : "Some value",
   "operation" : "UPDATED",
-  "currentValue" : "Another value",
-  "prevValue" : "Some value"
+  "key" : "setting1"
 }, {
-  "key" : "setting2",
+  "value2" : 300,
+  "value1" : 200,
   "operation" : "UPDATED",
-  "currentValue" : 300,
-  "prevValue" : 200
+  "key" : "setting2"
 }, {
-  "key" : "setting3",
+  "value2" : "none",
+  "value1" : true,
   "operation" : "UPDATED",
-  "currentValue" : "none",
-  "prevValue" : true
+  "key" : "setting3"
 } ]

@@ -1,13 +1,16 @@
 package hexlet.code.formatters;
 
-import hexlet.code.DiffData;
-
 import java.util.List;
+import java.util.Map;
+
+import static hexlet.code.DiffView.Operation.ADDED;
+import static hexlet.code.DiffView.Operation.UPDATED;
+import static hexlet.code.DiffView.Operation.UNCHANGED;
+import static hexlet.code.DiffView.Operation.REMOVED;
 
 public class Stylish {
-    public static String format(List<DiffData> diffView) {
+    public static String format(List<Map<String, Object>> diffView) {
         StringBuilder result = new StringBuilder();
-
 
         String added = "\n  + %s: %s";
         String removed = "\n  - %s: %s";
@@ -16,14 +19,19 @@ public class Stylish {
 
         result.append("{");
 
-        for (DiffData diffInfo: diffView) {
-            switch (diffInfo.getOperation()) {
-                case ADDED -> result.append(String.format(added, diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case REMOVED -> result.append(String.format(removed, diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case UPDATED -> result.append(String.format(updated, diffInfo.getKey(),
-                        diffInfo.getPrevValue(), diffInfo.getKey(), diffInfo.getCurrentValue()));
-                case UNCHANGED -> result.append(String.format(def, diffInfo.getKey(), diffInfo.getCurrentValue()));
-                default -> throw new RuntimeException("Unexpected operation: " + diffInfo.getOperation());
+        for (Map<String, Object> diffInfo: diffView) {
+            Object operation = diffInfo.get("operation");
+            if (operation.equals(ADDED)) {
+                result.append(String.format(added, diffInfo.get("key"), diffInfo.get("value")));
+            } else if (operation.equals(REMOVED)) {
+                result.append(String.format(removed, diffInfo.get("key"), diffInfo.get("value")));
+            } else if (operation.equals(UPDATED)) {
+                result.append(String.format(updated, diffInfo.get("key"),
+                        diffInfo.get("value1"), diffInfo.get("key"), diffInfo.get("value2")));
+            } else if (operation.equals(UNCHANGED)) {
+                result.append(String.format(def, diffInfo.get("key"), diffInfo.get("value")));
+            } else {
+                throw new RuntimeException("Unexpected operation: " + diffInfo.get("operation"));
             }
         }
 

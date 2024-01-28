@@ -5,6 +5,7 @@ import hexlet.code.formatters.Formatter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.util.List;
 import java.util.Map;
 import org.apache.commons.io.FilenameUtils;
 
@@ -13,7 +14,7 @@ public class Differ {
         Map<String, Object> map1 = getData(filePath1);
         Map<String, Object> map2 = getData(filePath2);
 
-        var diffView = DiffView.get(map1, map2);
+        List<Map<String, Object>> diffView = DiffView.get(map1, map2);
         return Formatter.format(diffView, format);
     }
 

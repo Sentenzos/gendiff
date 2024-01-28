@@ -6,8 +6,11 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.Map;
 
 public class Parser {
-    String extension;
+    private String extension;
 
+    /**
+     * @param extension
+     */
     public Parser(String extension) {
         this.extension = extension;
     }

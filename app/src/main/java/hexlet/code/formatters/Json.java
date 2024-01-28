@@ -3,14 +3,13 @@ package hexlet.code.formatters;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import hexlet.code.DiffData;
 import java.util.List;
+import java.util.Map;
 
 public class Json {
-    public static String format(List<DiffData> diffView) throws JsonProcessingException {
+    public static String format(List<Map<String, Object>> diffView) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        String test = mapper.writeValueAsString(diffView);
-        return test;
+        return mapper.writeValueAsString(diffView);
     }
 }
