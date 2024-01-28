@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DiffView {
     public static List<DiffData> get(Map<String, Object> map1, Map<String, Object> map2) {
