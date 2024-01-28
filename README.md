@@ -9,4 +9,4 @@
 
 <h3>Example:</h3>
 
-[![asciicast](https://asciinema.org/a/U6EmJz2eK2KFrvSkxScqvGJju.svg)](https://asciinema.org/a/U6EmJz2eK2KFrvSkxScqvGJju)
+[![asciicast](https://asciinema.org/a/n0EypUhmgdfuvIEIoChlDgDV4.svg)](https://asciinema.org/a/n0EypUhmgdfuvIEIoChlDgDV4)
