@@ -10,20 +10,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.apache.commons.io.FilenameUtils;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
-        Path path1 = Paths.get(filePath1).toAbsolutePath().normalize();
-        Path path2 = Paths.get(filePath2).toAbsolutePath().normalize();
-
-        if (!Files.exists(path1)) {
-            throw new Exception("File '" + path1 + "' does not exist");
-        } else if (!Files.exists(path2)) {
-            throw new Exception("File '" + path2 + "' does not exist");
-        }
-
-        Map<String, Object> map1 = Parser.parse(path1);
-        Map<String, Object> map2 = Parser.parse(path2);
+        Map<String, Object> map1 = getData(filePath1);
+        Map<String, Object> map2 = getData(filePath2);
 
         List<String> list = Stream.of(map1.keySet(), map2.keySet()).
                 flatMap(Collection::stream)
@@ -38,5 +30,13 @@ public class Differ {
 
     public static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
+    }
+
+    private static Map<String, Object> getData(String filePath) throws Exception {
+        Path path = Paths.get(filePath).toAbsolutePath().normalize();
+        String extension = FilenameUtils.getExtension(String.valueOf(path));
+        Parser parser = new Parser(extension);
+        String content = Files.readString(path);
+        return parser.parse(content);
     }
 }

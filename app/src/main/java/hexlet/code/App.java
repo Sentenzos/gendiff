@@ -35,6 +35,6 @@ public class App implements Callable<Integer>  {
     public Integer call() throws Exception {
         var result = Differ.generate(filePath1, filePath2, format);
         System.out.println(result);
-        return null;
+        return 0;
     }
 }

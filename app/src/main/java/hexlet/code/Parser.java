@@ -3,23 +3,24 @@ package hexlet.code;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Map;
-import java.util.function.Predicate;
 
 public class Parser {
-    public static Map<String, Object> parse(Path path) throws Exception {
-        Map<String, Object> result;
-        Predicate<String> extension = ex -> path.getFileName().toString().endsWith(ex);
+    String extension;
 
-        if (extension.test(".yml")) {
+    public Parser(String extension) {
+        this.extension = extension;
+    }
+
+    public Map<String, Object> parse(String content) throws Exception {
+        Map<String, Object> result;
+
+        if (extension.equals("yml")) {
             ObjectMapper mapper = new YAMLMapper();
-            result = mapper.readValue(Files.readString(path), new TypeReference<>() { });
-        } else if (extension.test(".json")) {
+            result = mapper.readValue(content, new TypeReference<>() { });
+        } else if (extension.equals("json")) {
             ObjectMapper mapper = new ObjectMapper();
-            result = mapper.readValue(Files.readString(path), new TypeReference<>() { });
+            result = mapper.readValue(content, new TypeReference<>() { });
         } else {
             throw new Exception("The format is not supported");
         }
