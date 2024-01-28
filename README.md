@@ -5,6 +5,8 @@
 [![Java CI](https://github.com/Sentenzos/java-project-71/actions/workflows/main.yml/badge.svg)](https://github.com/Sentenzos/java-project-71/actions/workflows/main.yml)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/cfd54389af6a4f313bad/test_coverage)](https://codeclimate.com/github/Sentenzos/java-project-71/test_coverage)
 
+Выполняет сравнение двух JSON или YML файлов и выводит их различия в трех форматах: Stylish, Plain или JSON.
+
 <h3>Example:</h3>
 
 [![asciicast](https://asciinema.org/a/U6EmJz2eK2KFrvSkxScqvGJju.svg)](https://asciinema.org/a/U6EmJz2eK2KFrvSkxScqvGJju)
