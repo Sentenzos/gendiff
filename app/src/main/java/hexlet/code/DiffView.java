@@ -1,14 +1,15 @@
 package hexlet.code;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DiffView {
-    public static List<DiffData> get(List<String> keyList, Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<DiffData> get(Map<String, Object> map1, Map<String, Object> map2) {
+        Set<String> keySet = new TreeSet<>(map1.keySet());
+        keySet.addAll(map2.keySet());
+
         List<DiffData> diffDataList = new ArrayList<>();
 
-        for (String key: keyList) {
+        for (String key: keySet) {
             if (!map1.containsKey(key)) {
                 diffDataList.add(new DiffData(key, DiffData.Operation.ADDED, map2.get(key)));
             } else if (!map2.containsKey(key)) {

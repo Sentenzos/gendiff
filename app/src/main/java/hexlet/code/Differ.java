@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.util.Map;
 import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.commons.io.FilenameUtils;
@@ -17,14 +18,7 @@ public class Differ {
         Map<String, Object> map1 = getData(filePath1);
         Map<String, Object> map2 = getData(filePath2);
 
-        List<String> list = Stream.of(map1.keySet(), map2.keySet()).
-                flatMap(Collection::stream)
-                .collect(Collectors.toSet())
-                .stream()
-                .sorted()
-                .toList();
-
-        var diffView = DiffView.get(list, map1, map2);
+        var diffView = DiffView.get(map1, map2);
         return Formatter.format(diffView, format);
     }
 
