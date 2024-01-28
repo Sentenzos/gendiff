@@ -25,16 +25,16 @@ public class DifferTest {
     }
 
     @Test
-    public void jsonToStylishDiffTest() throws Exception {
+    public void jsonToDefaultDiffTest() throws Exception {
         var actual = Differ.generate("./src/test/resources/j1.json",
                 "./src/test/resources/j2.json");
         assertEquals(expectedStylish, actual);
     }
 
     @Test
-    public void yamlToStylishDiffTest() throws Exception {
-        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml",
-                "stylish");
+    public void jsonToStylishDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/j1.json",
+                "./src/test/resources/j2.json", "stylish");
         assertEquals(expectedStylish, actual);
     }
 
@@ -49,6 +49,33 @@ public class DifferTest {
     public void jsonToJsonDiffTest() throws Exception {
         var actual = Differ.generate("./src/test/resources/j1.json",
                 "./src/test/resources/j2.json", "json");
+        assertEquals(expectedJson, actual);
+    }
+
+    @Test
+    public void yamlToDefaultDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml");
+        assertEquals(expectedStylish, actual);
+    }
+
+    @Test
+    public void yamlToStylishDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml",
+                "stylish");
+        assertEquals(expectedStylish, actual);
+    }
+
+    @Test
+    public void yamlToPlainDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml",
+                "plain");
+        assertEquals(expectedPlain, actual);
+    }
+
+    @Test
+    public void yamlToJsonDiffTest() throws Exception {
+        var actual = Differ.generate("./src/test/resources/y1.yml", "./src/test/resources/y2.yml",
+                "json");
         assertEquals(expectedJson, actual);
     }
 }
