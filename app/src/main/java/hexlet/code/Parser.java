@@ -8,13 +8,16 @@ import java.util.Map;
 public class Parser {
     private String extension;
 
-    /**
-     * @param extension
-     */
     public Parser(String extension) {
         this.extension = extension;
     }
 
+    /**
+     *
+     * @param content
+     * @return Map<String, Object>
+     * @throws Exception
+     */
     public Map<String, Object> parse(String content) throws Exception {
         Map<String, Object> result;
 
