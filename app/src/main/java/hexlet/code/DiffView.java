@@ -22,22 +22,19 @@ public class DiffView {
 
         for (String key: keySet) {
             Map<String, Object> line = new HashMap<>();
+            line.put("key", key);
 
             if (!map1.containsKey(key)) {
-                line.put("key", key);
                 line.put("operation", Operation.ADDED);
                 line.put("value", map2.get(key));
             } else if (!map2.containsKey(key)) {
-                line.put("key", key);
                 line.put("operation", Operation.REMOVED);
                 line.put("value", map1.get(key));
             } else if ((map1.get(key) == null && map2.get(key) != null) || !map1.get(key).equals(map2.get(key))) {
-                line.put("key", key);
                 line.put("operation", Operation.UPDATED);
                 line.put("value1", map1.get(key));
                 line.put("value2", map2.get(key));
             } else {
-                line.put("key", key);
                 line.put("operation", Operation.UNCHANGED);
                 line.put("value", map1.get(key));
             }
