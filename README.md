@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/cfd54389af6a4f313bad/maintainability)](https://codeclimate.com/github/Sentenzos/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/cfd54389af6a4f313bad/test_coverage)](https://codeclimate.com/github/Sentenzos/java-project-71/test_coverage)
 
-Выполняет сравнение двух JSON или YML файлов и выводит их различия в трех форматах: Stylish, Plain или JSON.
+The application compares two JSON or YML files and outputs their differences in three formats: Stylish, Plain, or JSON.
 
 <h3>Example:</h3>
 
