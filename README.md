@@ -10,3 +10,24 @@
 <h3>Example:</h3>
 
 [![asciicast](https://asciinema.org/a/n0EypUhmgdfuvIEIoChlDgDV4.svg)](https://asciinema.org/a/n0EypUhmgdfuvIEIoChlDgDV4)
+
+
+## Install
+```bash
+make install
+```
+
+## Build
+```bash
+make build
+```
+
+## Run
+```bash
+make run-dist
+```
+
+## Test
+```bash
+make test
+```
