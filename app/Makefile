@@ -1,6 +1,6 @@
 # Makefile
 run-dist: # Run application
-	@./build/install/app/bin/app
+	@./build/install/app/bin/app -h
 
 build:
 	@./gradlew clean build
